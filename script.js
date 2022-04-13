@@ -4,7 +4,7 @@ let canPlay = true;
 
 function updateGamePoints() {
   const gamePointsElement = document.getElementById("gamePoints");
-  gamePointsElement.innerHTML = "Game Point is " + gamePoints;
+  gamePointsElement.innerHTML = `Game Point is <strong>${gamePoints}</strong>`;
 }
 
 function refresh() {
@@ -19,12 +19,12 @@ function addGrid() {
       const index = i * 9 + j;
       const col = document.createElement("div");
       col.setAttribute("index", index);
+      col.style.backgroundColor = "gray";
 
       col.style.border = "1px solid black";
       col.style.display = "inline-block";
       col.style.height = "60px";
       col.style.width = "60px";
-      col.style.textAlign = "center";
       col.style.verticalAlign = "middle";
 
       col.addEventListener("click", () => {
@@ -42,7 +42,6 @@ function addGrid() {
           }
         }
       });
-
       row.appendChild(col);
     }
     app.appendChild(row);
